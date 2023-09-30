@@ -87,7 +87,7 @@
 												<a class="page-scroll" href="#team">Doctor</a>
 											</li>
 											<li class="nav-item">
-												<a class="page-scroll" href="#blog">Blog</a>
+												<a class="page-scroll" href="#appointment">Appoinment</a>
 											</li>
 											<li class="nav-item">
 												<a class="page-scroll" href="#contact">Contact</a>
@@ -134,7 +134,7 @@
                                             premier doctors and cutting-edge equipment. Our unwavering commitment to your well-being means you'll receive top-tier medical care. 
                                             With us, your health is in the most capable hands, and our advanced facilities ensure the highest standards.  
                                             </p>
-										<a href="#contact" class="btn theme-btn page-scroll" data-animation="fadeInUp" data-duration="1.5s"
+										<a href="#appointment" class="btn theme-btn page-scroll" data-animation="fadeInUp" data-duration="1.5s"
 											data-delay=".9s">Make
 											Appoinment</a>
 									</div>
@@ -635,7 +635,7 @@
 	<!-- ========================= subscribe-section end ========================= -->
 
 	<!-- ========================= blog-section start ========================= -->
-	<section id="blog" class="blog-section pt-150">
+	<section id="appointment" class="blog-section pt-150">
 		<div class="shape shape-7">
 			<img src="/static/images/shapes/shape-6.svg" alt="">
 		</div>
@@ -643,56 +643,63 @@
 			<div class="row">
 				<div class="col-xl-8 mx-auto">
 					<div class="section-title text-center mb-55">
-						<span class="wow fadeInDown" data-wow-delay=".2s">Blog Post</span>
-						<h2 class="mb-15 wow fadeInUp" data-wow-delay=".4s">Latest News</h2>
-						<p class="wow fadeInUp" data-wow-delay=".4s">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-							dinonumy <br class="d-none d-lg-block"> eirmod tempor invidunt ut labore et dolore magn.</p>
+						<span class="wow fadeInDown" data-wow-delay=".2s">Book Your Appoinment</span>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xl-4 col-lg-4 col-md-6">
-					<div class="single-blog mb-30 wow fadeInUp" data-wow-delay=".2s">
-						<div class="blog-img">
-							<a href="#"><img src="/static/images/blog/blog-1.png" alt=""></a>
-						</div>
-						<div class="blog-content">
-							<h4><a href="#">250+ Medical Tips We Just
-									Had to Share</a></h4>
-							<p>Lorem ipsum dolor sirtewt amertse consetetur sadipscing elitr, sedqw dinoumy eirmod tempor invidunt
-								sedrsu.</p>
-							<a class="read-more" href="#">Read More <i class="lni lni-arrow-right"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4 col-md-6">
-					<div class="single-blog mb-30 wow fadeInUp" data-wow-delay=".4s">
-						<div class="blog-img">
-							<a href="#"><img src="/static/images/blog/blog-2.png" alt=""></a>
-						</div>
-						<div class="blog-content">
-							<h4><a href="#">100+ Medical Tips We Just Had to Share</a></h4>
-							<p>Lorem ipsum dolor sirtewt amertse consetetur sadipscing elitr, sedqw dinoumy eirmod tempor invidunt
-								sedrsu.</p>
-							<a class="read-more" href="#">Read More <i class="lni lni-arrow-right"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4 col-md-6">
-					<div class="single-blog mb-30 wow fadeInUp" data-wow-delay=".6s">
-						<div class="blog-img">
-							<a href="#"><img src="/static/images/blog/blog-3.png" alt=""></a>
-						</div>
-						<div class="blog-content">
-							<h4><a href="#">250+ Medical Tips We Just Had to Share</a></h4>
-							<p>Lorem ipsum dolor sirtewt amertse consetetur sadipscing elitr, sedqw dinoumy eirmod tempor invidunt
-								sedrsu.</p>
-							<a class="read-more" href="#">Read More <i class="lni lni-arrow-right"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+               
+                <form action="{% url 'appointment' %}" method="post" class="row g-3" onsubmit="refreshPage()">
+                    {% csrf_token %}
+                    <div class="col-md-6">
+                      <label for="inputEmail4" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputPassword4" class="form-label">Phone Number</label>
+                      <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                      </div>
+                   
+                    
+                    <div class="col-md-4">
+                      <label for="inputState" class="form-label">Doctor</label>
+                      <select id="doctor" class="form-select" name="doctor">
+                        <option selected>Select Doctor</option>
+                        <option value="1">Dr.Jessica Robinson(Orthopedics)</option>
+                        <option value="2">Dr.Daniel Clark(Cardiology)</option>
+                        <option value="3">Dr.Joseph Martinez(Neurology)</option>
+                        <option value="4">Dr.Sara Adams(Orthopedics)</option>
+                        <option value="5">Dr.Richard Taylor(Gastroenterology)</option>
+                        <option value="6">Dr.Laura Garcia(Dental Surgery)</option>
+                        <option value="7">Dr.Michael Johnson(Gynecology)</option>
+                        <option value="8">Dr.Christopher White(Cardiology)</option>
+                       
+                      </select>
+                    </div>
+                  
+                    <div class="col-md-2">
+                        <label for="inputDateTime"  class="form-label">Booking Date</label>
+            <input type="date"  id="inputDateTime" name="date">
+                                           </div>
+                    
+                    
+                   
+                    <div class="col-12 text-center">
+                      <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
+                  </form>
+                  <script>
+                    function refreshPage() {
+                        // This will refresh the page after the form is submitted.
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000); // Refresh after 2 seconds (adjust the delay as needed)
+                    }
+                </script>
 	</section>
 	<!-- ========================= blog-section end ========================= -->
 
@@ -725,7 +732,7 @@
 								<li><a href="#about">About</a></li>
 								<li><a href="#services">Services</a></li>
 								<li><a href="#team">Doctor</a></li>
-								<li><a href="#blog">Blog</a></li>
+								<li><a href="#appointment">Appoinment</a></li>
 								<li><a href="#contact">Contact</a></li>
 							</ul>
 						</div>
@@ -744,7 +751,7 @@
 				</div>
 			</div>
 			<div class="copyright-area">
-				<p class="mb-0 text-center">Designed and Developed By <a href="https://uideck.com/" rel="nofollow">UIdeck</a></p>
+				<p class="mb-0 text-center">Designed and Developed By <a href="https://github.com/ajnasajnas1234" target="_blank">MUTHU</a></p>
 			</div>
 		</div>
 	</footer>

@@ -127,4 +127,4 @@ STATICFILES_DIRS = [ os.path.join(BASE_DIR,'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-ALLOWED_HOSTS = ['hospital_administration.onrender.com','127.0.0.1']
+ALLOWED_HOSTS = ['https://hospital-administration.onrender.com/']
